@@ -4,9 +4,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Getter     // 롬복 어노테이션 -
+
+
+@Getter     // 롬복 어노테이션
 @NoArgsConstructor  // 롬복 어노테이션 - 기본 생성자 자동 추가 public Posts(){} d와 같음
 @Entity     // jpa 어노테이션 - 테이블과 링크될 클래스임을 나타냄
 public class Posts {    // 실제 DB와 매칭 될 클래스

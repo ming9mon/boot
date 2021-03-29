@@ -1,6 +1,5 @@
 package kr.ming9.boot.test.controller;
 
-import kr.ming9.boot.test.controller.TestController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +20,9 @@ public class TestControllerTest {
 
         @Test
         public void hello가_리턴된다() throws Exception {
-        String hello = "hello";
+                String hello = "hello";
 
-        mvc.perform(get("/hello"))
+                mvc.perform(get("/hello"))
                         .andExpect(status().isOk())
                         .andExpect(content().string(hello));
         }
