@@ -1,0 +1,5 @@
+실행된 쿼리 로그
+- application.properties, application.yml 등의 파일로 한 줄의 코르로 설정 가능
+- src/main/resources 아래 application.properties 파일을 생성
+- spring.jpa.show_sql=true   <- 추가
+- spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBBialect   =   mysql 버전으로 출력?
