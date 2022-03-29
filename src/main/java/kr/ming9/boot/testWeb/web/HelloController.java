@@ -1,4 +1,4 @@
-package kr.ming9.boot.testWeb;
+package kr.ming9.boot.testWeb.web;
 
 import kr.ming9.boot.testWeb.dto.HelloDto;
 import org.springframework.web.bind.annotation.GetMapping;

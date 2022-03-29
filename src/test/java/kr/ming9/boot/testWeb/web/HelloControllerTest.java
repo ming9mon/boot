@@ -1,4 +1,4 @@
-package kr.ming9.boot.testWeb;
+package kr.ming9.boot.testWeb.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
