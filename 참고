@@ -3,3 +3,33 @@
 - src/main/resources 아래 application.properties 파일을 생성
 - spring.jpa.show_sql=true   <- 추가
 - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBBialect   =   mysql 버전으로 출력?
+
+h2 웹 콘솔 옵션 활성화
+- application.properties 에 spring.h2.console.enabled=true 추가
+- http://localhost:8080/h2-console 로 접속하면 콘솔 화면이 등장
+- JDBC URL: jdbc:h2:mem:testdb 로 변경
+
+
+------- 비즈니스 로직을 담당해야 할 곳은 Domain -------
+
+Web Layer
+- 흔히 사용하는 컨트롤러 등의 뷰 템플릿 영역
+- 이외에도 필터, 인터셉터, 컨트롤러 어드바이스 등 외부 요청과 등답에 대한 전반적인 영역
+
+Service Layer
+- 일반적으로 Controller와 Dao 중간 영역에서 사용됨
+- @Transaction이 사용되어야 하는 영역
+
+Reposytory Layer
+- Database와 같이 데이터 저장소에 접근하는 영역
+- Dao 영역으로 이해하면 됨
+
+Dtos
+- Data Transfer Object는 계층 간에 데이터 교환을 위한 객체를 이야기함
+- 뷰 템플릿 엔진에서 사용될 객체나 Repository Layer에서 결과로 넘겨준 객체 등
+
+Domain Model
+- 도메인이라 불리는 개발 대상을 모든 사람이 동일한 관정에서 이해할 수 있고 공유할 수 있도록 단순화시킨 것을 도메인 모델이라고 함
+- ex) 택시 앱에서 배차,탑승, 요금 등이 모두 도메인이 될 수 있음.
+- Entity가 사용된 영역 역시 도메인 모델
+- 무조건 데이터베이스의 테이블과 관계가 있어야만 하는 것은 아님. vo처럼 값객체들도 이 영역에 해당하기 때문

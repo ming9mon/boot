@@ -1,11 +1,11 @@
 package kr.ming9.boot.testWeb.web;
 
 import kr.ming9.boot.testWeb.service.PostsService;
+import kr.ming9.boot.testWeb.web.dto.PostsResponseDto;
 import kr.ming9.boot.testWeb.web.dto.PostsSaveRequestDto;
+import kr.ming9.boot.testWeb.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -28,5 +28,15 @@ public class PostsApiController {
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto reqDto){
         return posetsService.save(reqDto);
+    }
+
+    @PutMapping("/api/v1/posts/{id}")
+    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto reqDto){
+        return posetsService.update(id, reqDto);
+    }
+
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById(@PathVariable Long id){
+        return posetsService.findById(id);
     }
 }
