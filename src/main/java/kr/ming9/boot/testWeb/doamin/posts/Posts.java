@@ -1,5 +1,6 @@
 package kr.ming9.boot.testWeb.doamin.posts;
 
+import kr.ming9.boot.testWeb.doamin.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor  // 기본 생성자 자동 추가 - pulic Posts(){} 와 같은 효과
 @Entity             // 테이블과 링크될 클래스 - 기본값으로 클래스의 카멜케이스 이름을 언더스코어 네이밍으로 테이블 이름을 매칭
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // 해당 테이블의 PK 필드를 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY)     // PK의 생성 규칙 / GenerationType.IDENTITY 는 auto_increment
