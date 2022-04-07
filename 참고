@@ -37,3 +37,9 @@ Domain Model
 Auditing 사용
 - BaseTimeEntity 도메인 생성
 - Application.java에 @EnableJpaAuditing 어노테이션 추가
+
+머스테치
+- compile('org.springframework.boot:spring-boot-starter-mustache')
+- src/main/resources/templates 위치에 파일을 만들면 스프링 부트에서 자동으로 로딩
+
+스프링부트는 src/main/resources/static 에 위치한 자바스크립트, css, 이미지 등 정적 파일들을 URL에서 /로 설정됨
