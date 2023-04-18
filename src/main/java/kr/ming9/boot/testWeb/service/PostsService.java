@@ -3,12 +3,16 @@ package kr.ming9.boot.testWeb.service;
 
 import kr.ming9.boot.testWeb.doamin.posts.Posts;
 import kr.ming9.boot.testWeb.doamin.posts.PostsRepository;
+import kr.ming9.boot.testWeb.dto.PostsListResponseDto;
 import kr.ming9.boot.testWeb.web.dto.PostsResponseDto;
 import kr.ming9.boot.testWeb.web.dto.PostsSaveRequestDto;
 import kr.ming9.boot.testWeb.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -50,5 +54,18 @@ public class PostsService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
         return new PostsResponseDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    public void delete(Long id){
+        Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
+
+        postsRepository.delete(posts);
     }
 }
