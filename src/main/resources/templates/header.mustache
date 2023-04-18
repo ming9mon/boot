@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MING9</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="format-detection" content="telephone=no"><!--기본적으로 iOS safari는 전화번호처럼 형식화된 어느 문자열이든 감지하여 전화로 호출하는 링크를 만듬-->
+    <meta name="author" content="밍구(ming9.kr)">		<!-- 저작자 표시 -->
+
+    <link href="/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/common.css">
+    <script src="https://kit.fontawesome.com/d1af09a27c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="menu-bg"></div>
+<header class="header">
+    <!-- logo -->
+    <a href="/" class="logo">MING9</a>
+    <!-- profile -->
+    <img src="/img/profile.png" class="profile-img"></img>
+    <div class="profile-div"></div>
+    <!-- menu btn -->
+    <div class="menu-btn-warp">
+        <div class="menu-btn">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+        </div>
+    </div>
+
+    <!--bell-->
+    <div class="bell">
+        <i class="fas fa-bell fa-fw fw100"></i>
+        <span class="badge badge-danger badge-counter">0</span>
+    </div>
+
+    <!-- 사이드 메뉴 -->
+    <section class="menuwrap">
+        <nav id="menu">
+            <!-- "메뉴목록 표시" -->
+            <div class="menu-title"><img src="./img/kakao-ico.png"></img><span>카카오</span></div>
+            <ul class="">
+                <li class=""><a class="" href="/category/1">기초</a></li>
+                <li class=""><a class="" href="/category/2">실전</a></li>
+                <li class=""><a class="" href="/category/3">코드조각</a></li>
+                <li class=""><a class="" href="/category/4">firebase</a></li>
+                <li class=""><a class="" href="/category/5">expo</a></li>
+            </ul>
+            <div class="menu-title"><i class="fa-solid fa-cloud-sun"></i><span>날씨</span></div>
+            <div class="menu-title"><i class="fa-solid fa-gamepad"></i><span>게임</span></div>
+            <ul class="hide">
+                <li class=""><a class="" href="/category/1">지렁이 게임</a></li>
+                <li class=""><a class="" href="/category/2">2048</a></li>
+                <li class=""><a class="" href="/category/3">지뢰찾기</a></li>
+                <li class=""><a class="" href="/category/4">게슈탈트 붕괴 타자연습</a></li>
+                <li class=""><a class="" href="/category/5">오델로</a></li>
+            </ul>
+            <div class="menu-title"><a href="/boardList"><i class="fa-solid fa-pen-to-square"></i><span>게시판</span></a></div>
+        </nav>
+
+        <!-- 다크모드 토글 -->
+        <div class="toggle-btn" id="darkMode">
+            <input type="checkbox">
+            <span></span>
+        </div>
+
+        <div class="menu-bottom">
+            <a href="/signIn">로그인</a>
+            <a href="/signUp">회원가입</a>
+        </div>
+    </section>
+</header>
+
+<!-- 광고 -->
+<div class="blurb">
+    <div class="top-blurb"></div>
+</div>
+<!-- /header -->

@@ -20,7 +20,7 @@ public class IndexControllerTest {
 
     @Test
     public void 메인(){
-        String body = this.restTemplate.getForObject("/",String.class);
+        String body = this.restTemplate.getForObject("/test",String.class);
 
         assertThat(body).contains("test");
     }

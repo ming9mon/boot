@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>스프링 부트 mastache 테스트</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="format-detection" content="telephone=no"><!--기본적으로 iOS safari는 전화번호처럼 형식화된 어느 문자열이든 감지하여 전화로 호출하는 링크를 만듬-->
+    <meta name="author" content="밍구(ming9.kr)">		<!-- 저작자 표시 -->
+
+    <link rel="stylesheet" href="/css/sb-admin-2.min.css" rel="stylesheet" type="text/css">
+    <link href="/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/common.css">
+    <script src="https://kit.fontawesome.com/d1af09a27c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="menu-bg"></div>
+<header class="header">
+    <!-- logo -->
+    <a href="/" class="logo">MING9</a>
+    <!-- profile -->
+    <img src="/img/profile.png" class="profile-img"></img>
+    <div class="profile-div"></div>
+    <!-- menu btn -->
+    <div class="menu-btn-warp">
+        <div class="menu-btn">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+        </div>
+    </div>
+
+    <!--bell-->
+    <div class="bell">
+        <i class="fas fa-bell fa-fw fw100"></i>
+        <span class="badge badge-danger badge-counter">0</span>
+    </div>
+
+    <!-- 사이드 메뉴 -->
+    <section class="menuwrap">
+        <nav id="menu">
+            <!-- "메뉴목록 표시" -->
+            <div class="menu-title"><img src="./img/kakao-ico.png"></img><span>카카오</span></div>
+            <ul class="">
+                <li class=""><a class="" href="/category/1">기초</a></li>
+                <li class=""><a class="" href="/category/2">실전</a></li>
+                <li class=""><a class="" href="/category/3">코드조각</a></li>
+                <li class=""><a class="" href="/category/4">firebase</a></li>
+                <li class=""><a class="" href="/category/5">expo</a></li>
+            </ul>
+            <div class="menu-title"><i class="fa-solid fa-cloud-sun"></i><span>날씨</span></div>
+            <div class="menu-title"><i class="fa-solid fa-gamepad"></i><span>게임</span></div>
+            <ul class="hide">
+                <li class=""><a class="" href="/category/1">지렁이 게임</a></li>
+                <li class=""><a class="" href="/category/2">2048</a></li>
+                <li class=""><a class="" href="/category/3">지뢰찾기</a></li>
+                <li class=""><a class="" href="/category/4">게슈탈트 붕괴 타자연습</a></li>
+                <li class=""><a class="" href="/category/5">오델로</a></li>
+            </ul>
+            <div class="menu-title"><a href="/boardList"><i class="fa-solid fa-pen-to-square"></i><span>게시판</span></a></div>
+        </nav>
+
+        <!-- 다크모드 토글 -->
+        <div class="toggle-btn" id="darkMode">
+            <input type="checkbox">
+            <span></span>
+        </div>
+
+        <div class="menu-bottom">
+            <a href="/signIn">로그인</a>
+            <a href="/signUp">회원가입</a>
+        </div>
+    </section>
+</header>
+
+<!-- 광고 -->
+<div class="blurb">
+    <div class="top-blurb"></div>
+</div>
+<!-- /header -->
+
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block signInBg"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                </div>
+                                <form class="user" id="loginFrm" action="/member/loginCheck" method="post">
+                                    <input type="hidden" id="joinInfo" name="joinInfo" value="l">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" id="userId" name="userId" aria-describedby="emailHelp" placeholder="아이디 ">
+                                    </div>
+                                    <div class="mingError" id="userIdDiv" style="margin-bottom: 10px; font-color: red; display:none">
+                                        아이디를 입력해 주세요.
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" id="passwd" name="passwd" placeholder="비밀번호">
+                                    </div>
+                                    <div class="mingError" id="passwdDiv" style="margin-bottom: 10px; font-color: red; display:none">
+                                        비밀번호를 입력해 주세요.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="#" id="login" class="btn btn-primary btn-user btn-align">
+                                            로그인
+                                        </a>
+                                        <a href="#" id="signUp" class="btn btn-primary btn-user btn-align">
+                                            회원가입
+                                        </a>
+                                    </div>
+                                    <hr>
+                                    <div id="gSignInWrapper">
+                                        <div id="customBtn" class="customGPlusSignIn">
+                                            <span class="icon"></span>
+                                            <span class="buttonText">Google Login</span>
+                                        </div>
+                                    </div>
+                                    <!-- <a href="#" class="btn btn-facebook btn-user btn-block">
+                                        <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                    </a> -->
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a href="forgot-password.html">Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a href="register.html">Create an Account!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{{>footer}}
