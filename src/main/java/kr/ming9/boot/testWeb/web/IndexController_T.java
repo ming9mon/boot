@@ -1,5 +1,6 @@
 package kr.ming9.boot.testWeb.web;
 
+import kr.ming9.boot.config.auth.dto.SessionUser;
 import kr.ming9.boot.testWeb.service.PostsService;
 import kr.ming9.boot.testWeb.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -8,15 +9,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController_T {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("posts", postsService.findAllDesc());
+
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+
+        if(user != null){
+            model.addAttribute("userName", user.getName());
+        }
 
         return "index";
     }
