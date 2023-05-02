@@ -1,5 +1,6 @@
 package kr.ming9.boot.testWeb.web;
 
+import kr.ming9.boot.config.auth.LoginUser;
 import kr.ming9.boot.config.auth.dto.SessionUser;
 import kr.ming9.boot.testWeb.service.PostsService;
 import kr.ming9.boot.testWeb.web.dto.PostsResponseDto;
@@ -19,10 +20,8 @@ public class IndexController_T {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts", postsService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if(user != null){
             model.addAttribute("userName", user.getName());
