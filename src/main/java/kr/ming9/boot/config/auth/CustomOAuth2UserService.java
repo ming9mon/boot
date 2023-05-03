@@ -2,8 +2,8 @@ package kr.ming9.boot.config.auth;
 
 import kr.ming9.boot.config.auth.dto.OAuthAttributes;
 import kr.ming9.boot.config.auth.dto.SessionUser;
-import kr.ming9.boot.testWeb.doamin.user.User;
-import kr.ming9.boot.testWeb.doamin.user.UserRepository;
+import kr.ming9.boot.doamin.user.User;
+import kr.ming9.boot.doamin.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

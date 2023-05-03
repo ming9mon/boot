@@ -1,7 +1,7 @@
 package kr.ming9.boot.config.auth.dto;
 
-import kr.ming9.boot.testWeb.doamin.user.Role;
-import kr.ming9.boot.testWeb.doamin.user.User;
+import kr.ming9.boot.doamin.user.Role;
+import kr.ming9.boot.doamin.user.User;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -22,11 +22,13 @@ public class OAuthAttributes {
         this.nameAttributeKey = nameAttributeKey;
         this.name = name;
         this.email = email;
-        this. picture = picture;
+        this.picture = picture;
     }
 
     public static OAuthAttributes of(String registrationId, String userNameAttributeName,
                                      Map<String,Object> attributes){
+        if("naver".equals(registrationId)) return ofNaver("id", (Map<String, Object>) attributes.get("response"));
+
         return ofGoogle(userNameAttributeName, attributes);
     }
 
@@ -36,6 +38,16 @@ public class OAuthAttributes {
                 .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
+                .nameAttributeKey(userNameAttributeName)
+                .build();
+    }
+
+    private static OAuthAttributes ofNaver(String userNameAttributeName, Map<String, Object> response){
+        return OAuthAttributes.builder()
+                .name((String) response.get("name"))
+                .email((String) response.get("email"))
+                .picture((String) response.get("profile-image"))
+                .attributes(response)
                 .nameAttributeKey(userNameAttributeName)
                 .build();
     }

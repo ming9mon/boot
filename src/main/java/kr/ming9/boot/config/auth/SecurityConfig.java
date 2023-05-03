@@ -1,12 +1,10 @@
 package kr.ming9.boot.config.auth;
 
-import kr.ming9.boot.testWeb.doamin.user.Role;
+import kr.ming9.boot.doamin.user.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-import java.beans.Customizer;
 
 @RequiredArgsConstructor
 @EnableWebSecurity  // speing security 설정들을 활성화
