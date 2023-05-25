@@ -1,6 +1,5 @@
 package kr.ming9.boot.web;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class IndexControllerTest {
 
     @Test
     public void 메인(){
-        String body = this.restTemplate.getForObject("/test",String.class);
+        String body = this.restTemplate.getForObject("/",String.class);
 
         assertThat(body).contains("test");
     }

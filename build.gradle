@@ -36,9 +36,12 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
 
     // DB를 세션 저장소로 저장하기 위하여 추가
-    //compile('org.springframework.session:spring-session-jdbc')
+    compile('org.springframework.session:spring-session-jdbc')
 
     implementation 'org.springframework.boot:spring-boot-devtools'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    // test 스프링 security로 막히지 않게
+    testCompile('org.springframework.security:spring-security-test')
 }
